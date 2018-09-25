@@ -22,8 +22,8 @@ _This needs **Python 3.5**_
 
 3. Register your phone and get a password with like this:
 ```sh
-# Replace CC with your country code (See http://www.ipipi.com/help/telephone-country-codes.htm)
-> yowsup-cli registration --requestcode sms --phone CCXXXXXXXX--cc CC -E android
+# Replace CC with your country code (See https://countrycode.org)
+> yowsup-cli registration --requestcode sms --phone CCXXXXXXXX --cc CC -E android
 # After getting the sms code (in this example: 123456)
 > yowsup-cli registration --register 123456 --phone CCXXXXXXXX --cc CC -E android
 ```
@@ -45,9 +45,10 @@ from app.mac import mac, signals
 
 @signals.message_received.connect
 def handle(message):
-    #message.log() to see message object properties
     if message.text == "hi":
         mac.send_message("Hello", message.conversation)
+        
+        # Can also send media
         #mac.send_image("path/to/image.png", message.conversation)
         #mac.send_video("path/to/video.mp4", message.conversation)
 ```
@@ -87,5 +88,8 @@ The project is not submoduling yowsup now due to a lot of the modifications made
 <img src="https://i.imgur.com/pLiwAm5.png" width="253px" height="450px">
 <img src="https://i.imgur.com/poLpmAR.png" width="253px" height="450px">
 <img src="https://i.imgur.com/CRNKfHj.png" width="253px" height="450px">
+
+# Wiki
+[Read this](https://github.com/danielcardeenas/whatsapp-framework/wiki/Do-not-get-banned)
 
 ###### **BTC**: 3FSCxDHnRKQvRJWPv4fcbLm37RemauTXRF
